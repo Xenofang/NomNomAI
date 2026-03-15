@@ -13,6 +13,7 @@ app.use(cors({
   origin: [
     "http://localhost:5173",
     "https://nomnom-ai.vercel.app",
+    "https://nom-nom-ai-roan.vercel.app",
   ],
   credentials: true
 }));
