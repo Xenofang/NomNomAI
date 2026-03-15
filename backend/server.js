@@ -8,11 +8,16 @@ const recipeRoutes = require("./routes/recipeRoutes");
 const app = express();
 
 connectDB();
-
+//connects backend with frontend 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",
+    "https://nomnom-ai.vercel.app",
+  ],
   credentials: true
 }));
+
+
 app.use(express.json());
 
 
