@@ -84,12 +84,21 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-2xl text-white"
-            onClick={() => setOpen(true)}
-          >
-            ☰
-          </button>
+          {user ? (
+            <button
+              className="md:hidden text-2xl text-white"
+              onClick={() => setOpen(true)}
+            >
+              ☰
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="md:hidden bg-white text-red-500 px-3 py-1 rounded-full font-semibold"
+            >
+              Login
+            </Link>
+          )}
         </div>
 
         {/* Mobile Sidebar */}
@@ -104,33 +113,33 @@ const Navbar = () => {
           </div>
 
           <ul className="flex flex-col p-6 space-y-4">
-              <li>
-                <Link
-                  to="/"
-                  className="hover:text-[#F4A261]"
-                  onClick={() => setOpen(false)}
-                >
-                  🏠 Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/recipe"
-                  className="hover:text-[#F4A261]"
-                  onClick={() => setOpen(false)}
-                >
-                  👨‍🍳 Generate Recipe
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/saved"
-                  className="hover:text-[#F4A261]"
-                  onClick={() => setOpen(false)}
-                >
-                  🔖 Saved Recipes
-                </Link>
-              </li>
+            <li>
+              <Link
+                to="/"
+                className="hover:text-[#F4A261]"
+                onClick={() => setOpen(false)}
+              >
+                🏠 Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/recipe"
+                className="hover:text-[#F4A261]"
+                onClick={() => setOpen(false)}
+              >
+                👨‍🍳 Generate Recipe
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/saved"
+                className="hover:text-[#F4A261]"
+                onClick={() => setOpen(false)}
+              >
+                🔖 Saved Recipes
+              </Link>
+            </li>
             <li>
               <Link
                 to="/profile"
