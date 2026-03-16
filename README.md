@@ -41,8 +41,8 @@ Add your deployed links here:
 - Groq API
 
 ### Deployment
-- Frontend: Add platform name
-- Backend: Add platform name
+- Frontend: Vercel
+- Backend: Render
 - Database: MongoDB Atlas
 
 ---
