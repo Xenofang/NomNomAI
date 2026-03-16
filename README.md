@@ -4,8 +4,6 @@ NomNom AI is a full-stack AI-powered recipe generator built with the MERN stack.
 
 ## Live Demo
 
-Add your deployed links here:
-
 - Project NomNom Ai: [Live Website](https://nomnom-ai.vercel.app/)
 
 
