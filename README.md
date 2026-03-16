@@ -81,4 +81,31 @@ NomNom-AI/
 └── README.md
 ```
 
+####Web  ScreenShots
+---
+Home page
 
+![](https://github.com/Xenofang/NomNomAI/blob/dc4ff4252bfb3e5ec4f89b1b9d6630b9ee4df627/websiteImages/Screenshot%202026-03-16%20112122.png )
+---
+Recipe generation page
+
+![](https://github.com/Xenofang/NomNomAI/blob/dc4ff4252bfb3e5ec4f89b1b9d6630b9ee4df627/websiteImages/Screenshot%202026-03-16%20110640.png)
+---
+Saved recipes page
+
+![](https://github.com/Xenofang/NomNomAI/blob/dc4ff4252bfb3e5ec4f89b1b9d6630b9ee4df627/websiteImages/Screenshot%202026-03-16%20112013.png)
+---
+Profile page
+
+![](https://github.com/Xenofang/NomNomAI/blob/dc4ff4252bfb3e5ec4f89b1b9d6630b9ee4df627/websiteImages/Screenshot%202026-03-16%20112041.png
+)
+---
+Register Page
+
+![](https://github.com/Xenofang/NomNomAI/blob/dc4ff4252bfb3e5ec4f89b1b9d6630b9ee4df627/websiteImages/Screenshot%202026-03-16%20112104.png
+)
+---
+Login page
+
+![](https://github.com/Xenofang/NomNomAI/blob/dc4ff4252bfb3e5ec4f89b1b9d6630b9ee4df627/websiteImages/Screenshot%202026-03-16%20112053.png)
+---
