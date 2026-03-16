@@ -42,6 +42,7 @@ const recipeSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
+      default : "Ai recipe"
     },
 
     ingredients: [

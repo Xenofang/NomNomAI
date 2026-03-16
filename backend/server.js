@@ -22,7 +22,7 @@ app.use(cors({
 app.use(express.json());
 
 
-app.get("/test", (req, res) => res.json({ message: "Server is working" }));
+
 app.use("/api", userRoutes);
 app.use("/api/recipes", recipeRoutes); 
 
