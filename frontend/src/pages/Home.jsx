@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 const images = [
   "https://images.pexels.com/photos/262897/pexels-photo-262897.jpeg",
@@ -10,7 +10,7 @@ const images = [
   "https://images.pexels.com/photos/9617397/pexels-photo-9617397.jpeg",
   "https://images.pexels.com/photos/12392831/pexels-photo-12392831.jpeg",
   "https://images.pexels.com/photos/5560763/pexels-photo-5560763.jpeg",
-  "https://images.pexels.com/photos/28445589/pexels-photo-28445589.jpeg"
+  "https://images.pexels.com/photos/28445589/pexels-photo-28445589.jpeg",
 ];
 
 // ─────────────────────────────────────────────────────────────
@@ -19,46 +19,52 @@ const images = [
 const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const isTransitioningRef = useRef(false);
   const intervalRef = useRef(null);
 
-  const startAutoPlay = () => {
-    intervalRef.current = setInterval(() => goToNext(), 4000);
+  const setTransitioning = (val) => {
+    isTransitioningRef.current = val;
+    setIsTransitioning(val);
   };
 
-  const stopAutoPlay = () => {
+  const stopAutoPlay = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
-  };
+  }, []);
+
+  const goToNext = useCallback(() => {
+    if (isTransitioningRef.current) return;
+    setTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+      setTransitioning(false);
+    }, 800);
+  }, []);
+
+  const startAutoPlay = useCallback(() => {
+    intervalRef.current = setInterval(goToNext, 4000);
+  }, [goToNext]);
 
   useEffect(() => {
     startAutoPlay();
-    return () => stopAutoPlay();
-  }, []);
-
-  const goToNext = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-      setIsTransitioning(false);
-    }, 800);
-  };
+    return stopAutoPlay;
+  }, [startAutoPlay, stopAutoPlay]);
 
   const goToPrev = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
+    if (isTransitioningRef.current) return;
+    setTransitioning(true);
     setTimeout(() => {
       setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-      setIsTransitioning(false);
+      setTransitioning(false);
     }, 800);
   };
 
   const goToIndex = (index) => {
-    if (isTransitioning || index === currentIndex) return;
+    if (isTransitioningRef.current || index === currentIndex) return;
     stopAutoPlay();
-    setIsTransitioning(true);
+    setTransitioning(true);
     setTimeout(() => {
       setCurrentIndex(index);
-      setIsTransitioning(false);
+      setTransitioning(false);
       startAutoPlay();
     }, 800);
   };
@@ -79,7 +85,9 @@ const ImageSlider = () => {
         className="absolute inset-0 w-full h-full object-cover"
         style={{
           transform: isTransitioning ? "translateX(-100%)" : "translateX(0%)",
-          transition: isTransitioning ? "transform 0.8s cubic-bezier(0.77, 0, 0.175, 1)" : "none",
+          transition: isTransitioning
+            ? "transform 0.8s cubic-bezier(0.77, 0, 0.175, 1)"
+            : "none",
           zIndex: 2,
         }}
       />
@@ -92,7 +100,9 @@ const ImageSlider = () => {
         className="absolute inset-0 w-full h-full object-cover"
         style={{
           transform: isTransitioning ? "translateX(0%)" : "translateX(100%)",
-          transition: isTransitioning ? "transform 0.8s cubic-bezier(0.77, 0, 0.175, 1)" : "none",
+          transition: isTransitioning
+            ? "transform 0.8s cubic-bezier(0.77, 0, 0.175, 1)"
+            : "none",
           zIndex: 1,
         }}
       />

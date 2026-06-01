@@ -21,10 +21,10 @@ const Footer = () => {
           <ul className="space-y-2 text-sm">
             <li className="hover:text-[#E63946] cursor-pointer"><a href="/">Home</a></li>
             <li className="hover:text-[#E63946] cursor-pointer">
-              <a href="/recipe">Generate Recipe</a>
+              <a href="/Recipe">Generate Recipe</a>
             </li>
             <li className="hover:text-[#E63946] cursor-pointer">
-              <a href="/saved">Saved Recipes</a>
+              <a href="/Saved">Saved Recipes</a>
             </li>
             
           </ul>
