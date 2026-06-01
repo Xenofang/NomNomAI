@@ -1,4 +1,4 @@
-import { motion, useAnimation } from "motion/react";
+import  {useAnimation } from "motion/react";
 
 const lidVariants = {
   normal: { y: 0 },

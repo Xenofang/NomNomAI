@@ -14,7 +14,12 @@ const Navbar = () => {
     if (open) {
       const timer = setTimeout(() => setShowOverlay(true), 300);
       return () => clearTimeout(timer);
-    } else {
+    }
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShowOverlay(false);
     }
   }, [open]);

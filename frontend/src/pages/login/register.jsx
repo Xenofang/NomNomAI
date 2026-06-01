@@ -142,7 +142,11 @@ const Register = () => {
             Continue with Apple
           </button>
         </div>
-
+        <div>
+          <p className="bg-yellow-100 text-yellow-800 border border-yellow-300 px-4 py-2 rounded-md text-sm mt-2">
+            ⚠️ Note: Third party register is not available at the moment.
+          </p>
+        </div>
         <p className="text-center text-sm text-gray-600 mt-6">
           Already have an account?{" "}
           <Link to="/login" className="text-[#E63946] font-medium hover:underline">
