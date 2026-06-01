@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getRecipeById } from "../services/api";
 import toast from "react-hot-toast";
@@ -9,21 +9,22 @@ const RecipeDetail = () => {
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchRecipe();
-  }, [id]);
 
-  const fetchRecipe = async () => {
-    try {
-      const { data } = await getRecipeById(id);
-      setRecipe(data);
-    } catch (err) {
-      toast.error("Failed to load recipe.");
-      navigate("/saved");
-    } finally {
-      setLoading(false);
-    }
-  };
+const fetchRecipe = useCallback(async () => {
+  try {
+    const { data } = await getRecipeById(id);
+    setRecipe(data);
+  } catch {
+    toast.error("Failed to load recipe.");
+    navigate("/saved");
+  } finally {
+    setLoading(false);
+  }
+}, [id, navigate]);
+
+useEffect(() => {
+  fetchRecipe();
+}, [fetchRecipe]);
 
   if (loading) {
     return (

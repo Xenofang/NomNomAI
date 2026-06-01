@@ -102,7 +102,7 @@ const Recipe = () => {
     try {
       const { data } = await getUserRecipes();
       setRecentRecipes(data.slice(0, 4));
-    } catch (err) {
+    } catch  {
       console.error("Failed to fetch recent recipes");
     }
   };
@@ -126,9 +126,6 @@ const Recipe = () => {
     setRecipe(data);
 
     // Check if already in saved
-    const alreadySaved = recentRecipes.some(
-      (r) => r.title.toLowerCase() === data.title.toLowerCase()
-    );
     if (data.alreadySaved) {
       toast("This recipe is already in your saved list! 📋", { icon: "⚠️" });
     } else {

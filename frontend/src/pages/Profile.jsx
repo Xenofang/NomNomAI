@@ -16,13 +16,13 @@ const Profile = () => {
       return;
     }
     fetchRecipes();
-  }, [user]);
+  }, [user ,navigate]);
 
   const fetchRecipes = async () => {
     try {
       const { data } = await getUserRecipes();
       setRecipes(data);
-    } catch (err) {
+    } catch {
       toast.error("Failed to load profile data.");
     } finally {
       setLoading(false);

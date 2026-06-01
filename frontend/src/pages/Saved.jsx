@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { getUserRecipes, deleteRecipe, deleteAllRecipes } from "../services/api";
+import {
+  getUserRecipes,
+  deleteRecipe,
+  deleteAllRecipes,
+} from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -75,13 +79,13 @@ const Saved = () => {
       return;
     }
     fetchRecipes();
-  }, [user]);
+  }, [user, navigate]);
 
   const fetchRecipes = async () => {
     try {
       const { data } = await getUserRecipes();
       setRecipes(data);
-    } catch (err) {
+    } catch {
       toast.error("Failed to load recipes.");
     } finally {
       setLoading(false);
@@ -93,26 +97,31 @@ const Saved = () => {
       await deleteRecipe(id);
       setRecipes((prev) => prev.filter((r) => r._id !== id));
       toast.success("Recipe deleted!");
-    } catch (err) {
+    } catch {
       toast.error("Failed to delete recipe.");
     }
   };
 
   const handleDeleteAll = async () => {
     // Ask for confirmation before deleting all
-    if (!window.confirm("Are you sure you want to delete ALL recipes? This cannot be undone!")) return;
+    if (
+      !window.confirm(
+        "Are you sure you want to delete ALL recipes? This cannot be undone!",
+      )
+    )
+      return;
     try {
       await deleteAllRecipes();
       setRecipes([]);
       toast.success("All recipes deleted!");
-    } catch (err) {
+    } catch {
       toast.error("Failed to delete all recipes.");
     }
   };
 
   // Filter recipes based on search
   const filteredRecipes = recipes.filter((r) =>
-    r.title.toLowerCase().includes(search.toLowerCase())
+    r.title.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (

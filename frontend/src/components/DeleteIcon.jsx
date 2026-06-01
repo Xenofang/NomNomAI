@@ -1,4 +1,5 @@
-import  {useAnimation } from "motion/react";
+// eslint-disable-next-line no-unused-vars
+import { motion, useAnimation } from "framer-motion";
 
 const lidVariants = {
   normal: { y: 0 },
