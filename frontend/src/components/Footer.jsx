@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -6,9 +7,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-[2fr_1fr_1fr] gap-10">
         {/* Brand */}
         <div>
-          <h2 className="text-2xl font-bold text-[#F4A261]">
-            Nom-Nom Ai
-          </h2>
+          <h2 className="text-2xl font-bold text-[#F4A261]">Nom-Nom Ai</h2>
           <p className="mt-4 text-sm text-gray-300">
             Turn your everyday ingredients into delicious meals using the power
             of AI. Cook smarter and waste less food.
@@ -19,14 +18,15 @@ const Footer = () => {
         <div>
           <h3 className="font-semibold mb-4 text-[#F4A261]">Explore</h3>
           <ul className="space-y-2 text-sm">
-            <li className="hover:text-[#E63946] cursor-pointer"><a href="/">Home</a></li>
             <li className="hover:text-[#E63946] cursor-pointer">
-              <a href="/Recipe">Generate Recipe</a>
+              <a href="/">Home</a>
             </li>
             <li className="hover:text-[#E63946] cursor-pointer">
-              <a href="/Saved">Saved Recipes</a>
+              <Link to="/recipe">Generate Recipe</Link>
             </li>
-            
+            <li className="hover:text-[#E63946] cursor-pointer">
+              <Link to="/saved">Saved Recipes</Link>
+            </li>
           </ul>
         </div>
 
