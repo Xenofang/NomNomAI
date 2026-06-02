@@ -12,6 +12,7 @@ import RecipeDetail from "./pages/RecipeDetails";
 import Profile from "./pages/Profile"
 import EditProfile from "./pages/EditProfile";
 
+
 function Layout() {
   return (
     <>
