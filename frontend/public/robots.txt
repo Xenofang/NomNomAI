@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nomnom-ai.vercel.app/sitemap.xml
