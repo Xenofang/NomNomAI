@@ -11,13 +11,16 @@ NomNom AI is a full-stack AI-powered recipe generator built with the MERN stack.
 
 ## Features
 
-- AI-generated recipes based on user input
-- User authentication with JWT
-- Save recipes to personal account
-- View saved recipes
-- Delete recipes
-- Responsive frontend UI
-- User-specific recipe history using MongoDB references
+## Features
+
+- AI-generated recipes based on ingredients or custom prompts
+- Secure JWT-based authentication and authorization
+- API rate limiting to prevent abuse and spam requests
+- Save AI-generated recipes to a personal account
+- View and manage recipe history
+- Delete individual recipes or clear all saved recipes
+- Responsive frontend UI for desktop and mobile devices
+- User-specific recipe storage using MongoDB references
 
 ---
 
