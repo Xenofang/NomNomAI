@@ -12,7 +12,7 @@ const protect = require("../middleware/authMiddleware");
 
 const recipeLimiter = limiter({
   windowMs: 15 * 60 * 1000,     
-  max: 100, // limit each IP to 100 recipe generations per 15 minutes
+  max: 50, // limit each IP to 50 recipe generations per 15 minutes
   message: "Too many recipe generation requests, please try again later."
 });
 
