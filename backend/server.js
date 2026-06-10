@@ -14,6 +14,7 @@ app.use(cors({
     "http://localhost:5173",
     "https://nomnom-ai.vercel.app",
     "https://nom-nom-ai-roan.vercel.app",
+    "https://nomnom.qzz.io"
   ],
   credentials: true
 }));

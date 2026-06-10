@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API = axios.create({
   baseURL: "https://nomnomai-dvld.onrender.com/api",
+  withCredentials: true
 });
 
 // Automatically attach JWT token to every request if it exists

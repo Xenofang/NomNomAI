@@ -42,32 +42,42 @@ const createUser = async (req, res) => {
 // login 
 const loginUser = async (req, res) => {
   try {
+    console.time("TOTAL_LOGIN");
 
     const { email, password } = req.body;
 
+    console.time("FIND_USER");
     const user = await userModel.findOne({ email });
+    console.timeEnd("FIND_USER");
 
     if (!user) {
       return res.status(400).json({ message: "Invalid Email or Password" });
     }
 
+    console.time("BCRYPT_COMPARE");
     const isMatch = await bcrypt.compare(password, user.password);
+    console.timeEnd("BCRYPT_COMPARE");
 
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid email or password" });
     }
-    
+
+    console.time("GENERATE_TOKEN");
+    const token = generateToken(user._id);
+    console.timeEnd("GENERATE_TOKEN");
+
+    console.timeEnd("TOTAL_LOGIN");
+
     res.json({
       _id: user._id,
       name: user.name,
       email: user.email,
-      token: generateToken(user._id)
+      token
     });
 
   } catch (error) {
-
-    res.status(500).json({ message: 'Invalid email or password' });
-
+    console.error(error);
+    res.status(500).json({ message: "Server Error" });
   }
 };
 
