@@ -53,7 +53,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-[#5a4747] text-center py-4 text-sm text-gray-300">
-        © 2026 AI Recipe Generator • Built with ❤️ for food lovers
+        © 2026 AI Recipe Generator • Built with ❤️ for food lovers by Jhalak Mandal
       </div>
     </footer>
   );
