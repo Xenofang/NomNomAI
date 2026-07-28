@@ -33,6 +33,11 @@ const Login = () => {
       setLoading(false);
     }
   };
+
+  const handleGoogleLogin = () => {
+    // Placeholder for Google login functionality
+    toast.error("Google login is not implemented yet.");
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#FFF8F0] px-4">
       <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
@@ -105,7 +110,7 @@ const Login = () => {
         {/* Social Buttons */}
         <div className="space-y-3">
           <button className="w-full flex items-center justify-center gap-3 border py-2 rounded-lg hover:bg-gray-50 transition"
-            onClick={()=>{}}
+            onClick={handleGoogleLogin}
           >
             <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="google" className="w-5" />
             

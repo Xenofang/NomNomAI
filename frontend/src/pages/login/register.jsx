@@ -43,10 +43,17 @@ const Register = () => {
       toast.success(`Welcome, ${userData.name}! 🎉`);
       navigate("/");
     } catch (err) {
-      setError(err.response?.data?.message || "Registration failed. Try again.");
+      setError(
+        err.response?.data?.message || "Registration failed. Try again.",
+      );
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleGoogleLogin = () => {
+    // Placeholder for Google login functionality
+    toast.error("Google login is not implemented yet");
   };
 
   return (
@@ -70,7 +77,9 @@ const Register = () => {
         {/* Form */}
         <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
           <div>
-            <label className="block text-sm font-medium text-gray-600">Name</label>
+            <label className="block text-sm font-medium text-gray-600">
+              Name
+            </label>
             <input
               type="text"
               name="name"
@@ -83,7 +92,9 @@ const Register = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-600">Email</label>
+            <label className="block text-sm font-medium text-gray-600">
+              Email
+            </label>
             <input
               type="email"
               name="email"
@@ -96,7 +107,9 @@ const Register = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-600">Password</label>
+            <label className="block text-sm font-medium text-gray-600">
+              Password
+            </label>
             <input
               type="password"
               name="password"
@@ -126,11 +139,15 @@ const Register = () => {
 
         {/* Social Buttons */}
         <div className="space-y-3">
-          <button className="w-full flex items-center justify-center gap-3 border py-2 rounded-lg hover:bg-gray-50 transition"
-            onClick={()=>{}}
+          <button
+            className="w-full flex items-center justify-center gap-3 border py-2 rounded-lg hover:bg-gray-50 transition"
+            onClick={handleGoogleLogin}
           >
-            <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="google" className="w-5" />
-            
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/281/281764.png"
+              alt="google"
+              className="w-5"
+            />
             Continue with Google
           </button>
         </div>
@@ -141,7 +158,10 @@ const Register = () => {
         </div>
         <p className="text-center text-sm text-gray-600 mt-6">
           Already have an account?{" "}
-          <Link to="/login" className="text-[#E63946] font-medium hover:underline">
+          <Link
+            to="/login"
+            className="text-[#E63946] font-medium hover:underline"
+          >
             Login
           </Link>
         </p>
