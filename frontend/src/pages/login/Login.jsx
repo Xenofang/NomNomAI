@@ -102,7 +102,19 @@ const Login = () => {
           <div className="grow h-px bg-gray-300"></div>
         </div>
 
+        {/* Social Buttons */}
+        <div className="space-y-3">
+          <button className="w-full flex items-center justify-center gap-3 border py-2 rounded-lg hover:bg-gray-50 transition"
+            onClick={()=>{}}
+          >
+            <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="google" className="w-5" />
+            
+            Continue with Google
+          </button>
+        </div>
+
         {/* Signup Link */}
+        <br/>
         <p className="text-center text-sm text-gray-600">
           Don't have an account?{" "}
           <Link to="/register" className="text-[#E63946] hover:underline">

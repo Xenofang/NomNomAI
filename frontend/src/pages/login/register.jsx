@@ -133,14 +133,6 @@ const Register = () => {
             
             Continue with Google
           </button>
-          <button className="w-full flex items-center justify-center gap-3 border py-2 rounded-lg hover:bg-gray-50 transition">
-            <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="facebook" className="w-5" />
-            Continue with Facebook
-          </button>
-          <button className="w-full flex items-center justify-center gap-3 border py-2 rounded-lg hover:bg-gray-50 transition">
-            <img src="https://cdn-icons-png.flaticon.com/512/0/747.png" alt="apple" className="w-5" />
-            Continue with Apple
-          </button>
         </div>
         <div>
           <p className="bg-yellow-100 text-yellow-800 border border-yellow-300 px-4 py-2 rounded-md text-sm mt-2">
